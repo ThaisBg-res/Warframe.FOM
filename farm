@@ -1,0 +1,258 @@
+index.html
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FORMATION ULTIME — De 0 à Légende (Parodie)</title>
+  <meta name="description" content="Landing page parodique façon 'vendeur de rêve'." />
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin:0; background:#07070b; color:#e9e9f4; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+    .topbar {
+      position: sticky; top:0; backdrop-filter: blur(10px);
+      background: rgba(10,10,16,.7); border-bottom: 1px solid rgba(255,255,255,.08);
+      z-index: 10;
+    }
+    .topbar .wrap { display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.6px; }
+    .pill { font-size:12px; padding:6px 10px; border:1px solid rgba(255,255,255,.15); border-radius:999px; opacity:.9; }
+    .btn {
+      appearance:none; border:0; border-radius: 14px; padding: 12px 16px; cursor:pointer;
+      color:#0b0b10; background: linear-gradient(135deg,#ffdf3a,#ff7a18);
+      font-weight:800; box-shadow: 0 12px 30px rgba(255,140,0,.25);
+      transition: transform .06s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn.secondary {
+      background: transparent; color:#e9e9f4;
+      border:1px solid rgba(255,255,255,.18); box-shadow:none;
+    }
+    header.hero {
+      padding: 46px 0 26px;
+      background: radial-gradient(1000px 450px at 20% 10%, rgba(255,200,30,.18), transparent 60%),
+                  radial-gradient(900px 420px at 85% 0%, rgba(160,80,255,.18), transparent 55%);
+    }
+    .grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: 22px; align-items: start; }
+    @media (max-width: 860px){ .grid { grid-template-columns: 1fr; } }
+    h1 { font-size: clamp(34px, 4.6vw, 58px); line-height: 1.02; margin: 0 0 14px; }
+    .sub { font-size: 16px; opacity: .92; line-height: 1.6; max-width: 62ch; }
+    .badgeRow { display:flex; flex-wrap:wrap; gap:10px; margin: 18px 0 10px; }
+    .badge { font-size: 12px; padding:8px 10px; border-radius: 12px; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); }
+    .card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px; padding: 18px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 16px; }
+    .kpis { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .kpi { padding: 12px; border-radius: 14px; background: rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); }
+    .kpi .big { font-size: 22px; font-weight: 900; }
+    .kpi .small { font-size: 12px; opacity:.85; }
+    .countdown {
+      display:flex; gap:10px; justify-content:space-between; margin-top: 10px;
+    }
+    .timeBox { flex:1; text-align:center; padding: 10px 0; border-radius: 14px;
+      background: rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.10);
+    }
+    .timeBox b { display:block; font-size: 20px; }
+    .timeBox span { font-size: 11px; opacity:.85; letter-spacing:.5px; }
+    section { padding: 18px 0; }
+    h2 { font-size: 22px; margin: 0 0 12px; }
+    ul { margin: 10px 0 0 18px; line-height: 1.7; }
+    .quote { font-style: italic; opacity:.92; }
+    .testimonials { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    @media (max-width: 860px){ .testimonials { grid-template-columns: 1fr; } }
+    .fineprint { font-size: 12px; opacity:.7; line-height: 1.5; margin-top: 12px; }
+    .footer { padding: 30px 0 40px; border-top: 1px solid rgba(255,255,255,.08); opacity:.9; }
+    a { color:#ffd56a; }
+    .toast {
+      position: fixed; right: 16px; bottom: 16px; z-index: 20;
+      background: rgba(0,0,0,.75); border: 1px solid rgba(255,255,255,.12);
+      padding: 12px 14px; border-radius: 14px; width: min(360px, calc(100% - 32px));
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <span style="font-size:18px;">💎</span>
+        <span>RÊVE.ACADEMY</span>
+        <span class="pill">édition “0 → 10K/mois”</span>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <button class="btn secondary" id="btnProof">Voir “preuves”</button>
+        <button class="btn" id="btnCTA">ACCÈS VIP</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap grid">
+      <div>
+        <div class="badgeRow">
+          <div class="badge">✅ “Méthode secrète” (parodie)</div>
+          <div class="badge">⏳ Places illimitées mais “limitées”</div>
+          <div class="badge">🧠 Mindset + 2 PDF magiques</div>
+        </div>
+
+        <h1>De 0 à <span style="background: linear-gradient(135deg,#ffdf3a,#a06bff); -webkit-background-clip:text; background-clip:text; color:transparent;">Légende</span> en 7 jours.</h1>
+        <p class="sub">
+          Tu veux “changer de vie”, “reprendre le contrôle”, et “créer une liberté financière” en 2 clics ?
+          Bienvenue sur cette <b>parodie</b> de landing page façon influenceur 🚀
+        </p>
+
+        <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;">
+          <button class="btn" id="btnMain">JE PRENDS MA PLACE</button>
+          <button class="btn secondary" id="btnFree">Je veux “le gratuit”</button>
+        </div>
+
+        <p class="fineprint">
+          ⚠️ Ceci est un <b>site parodique</b>. Aucune formation n’est réellement vendue, aucun paiement n’est traité,
+          aucune donnée n’est collectée. Tu peux le laisser clairement indiqué pour éviter tout souci.
+        </p>
+      </div>
+
+      <aside class="card">
+        <h3>🔥 Offre “Flash” qui revient tous les jours</h3>
+        <div class="quote">“Je ferme à minuit… enfin… je verrai.”</div>
+
+        <div class="countdown" aria-label="Compte à rebours">
+          <div class="timeBox"><b id="d">00</b><span>JOURS</span></div>
+          <div class="timeBox"><b id="h">00</b><span>HEURES</span></div>
+          <div class="timeBox"><b id="m">00</b><span>MIN</span></div>
+          <div class="timeBox"><b id="s">00</b><span>SEC</span></div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="big" id="sold">1 337</div>
+            <div class="small">“Ventes” aujourd’hui</div>
+          </div>
+          <div class="kpi">
+            <div class="big">97%</div>
+            <div class="small">de “satisfaction” (source : moi)</div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; display:flex; gap:10px;">
+          <button class="btn" style="flex:1;" id="btnBuy">ACHETER (FAUX)</button>
+          <button class="btn secondary" style="flex:1;" id="btnLater">Je réfléchis</button>
+        </div>
+
+        <p class="fineprint">
+          Bonus: accès au “Discord privé” (en vrai non) + “coaching 1:1” (en rêve).
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Ce que tu vas “apprendre”</h2>
+      <ul>
+        <li>Comment faire une promesse énorme sans rien prouver (⚠️ parodie)</li>
+        <li>Comment mettre un <b>compte à rebours</b> qui recommence tout seul</li>
+        <li>Comment ajouter des “témoignages” ultra clichés</li>
+        <li>Comment faire un bouton “acheter” qui ne fait rien 😄</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Témoignages 100% “vérifiés”</h2>
+      <div class="testimonials">
+        <div class="card">
+          <b>Kevin D.</b>
+          <p class="quote">“En 24h j’ai compris que le vrai secret c’était le secret.”</p>
+          <small>⭐️⭐️⭐️⭐️⭐️</small>
+        </div>
+        <div class="card">
+          <b>Sarah M.</b>
+          <p class="quote">“Je suis passée de 0 à 0 mais avec un meilleur mindset.”</p>
+          <small>⭐️⭐️⭐️⭐️⭐️</small>
+        </div>
+        <div class="card">
+          <b>Yanis P.</b>
+          <p class="quote">“J’ai cliqué. Ça a changé ma vie (mon navigateur).”</p>
+          <small>⭐️⭐️⭐️⭐️⭐️</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>FAQ</h2>
+      <p><b>Est-ce vrai ?</b><br/>Non. C’est une parodie.</p>
+      <p><b>Je peux payer ?</b><br/>Non. Le bouton “acheter” déclenche juste un message.</p>
+      <p><b>Je peux le publier ?</b><br/>Oui, mais évite toute usurpation, et garde la mention parodique.</p>
+    </section>
+
+    <div class="footer">
+      <div class="fineprint">
+        © <span id="year"></span> RÊVE.ACADEMY — <b>Site parodique</b>. Aucun paiement, aucune collecte de données.
+        <br/>Si tu veux, je te fais aussi une version “crypto guru”, “coach mindset”, ou “dropshipping king”.
+      </div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // --- Helpers
+    const $ = (id) => document.getElementById(id);
+    const toast = (msg) => {
+      const t = $("toast");
+      t.textContent = msg;
+      t.style.display = "block";
+      clearTimeout(window.__toastT);
+      window.__toastT = setTimeout(() => (t.style.display = "none"), 2600);
+    };
+
+    // --- Fake countdown that resets daily at 23:59:59
+    function updateCountdown(){
+      const now = new Date();
+      const end = new Date();
+      end.setHours(23,59,59,999);
+      const diff = Math.max(0, end - now);
+
+      const s = Math.floor(diff/1000);
+      const days = Math.floor(s / 86400);
+      const hrs  = Math.floor((s % 86400) / 3600);
+      const mins = Math.floor((s % 3600) / 60);
+      const secs = s % 60;
+
+      $("d").textContent = String(days).padStart(2,"0");
+      $("h").textContent = String(hrs).padStart(2,"0");
+      $("m").textContent = String(mins).padStart(2,"0");
+      $("s").textContent = String(secs).padStart(2,"0");
+    }
+    setInterval(updateCountdown, 250);
+    updateCountdown();
+
+    // --- Fake sales counter
+    let sold = 1337;
+    function bumpSold(){
+      sold += Math.random() < 0.65 ? 1 : 0;
+      $("sold").textContent = sold.toLocaleString("fr-FR");
+    }
+    setInterval(bumpSold, 900);
+
+    // --- Buttons actions (no payments)
+    function cta(){
+      toast("🚫 Parodie : aucun achat ici. Mais ton mindset est déjà au top.");
+      document.querySelector("header.hero").scrollIntoView({behavior:"smooth"});
+    }
+
+    $("btnCTA").onclick = cta;
+    $("btnMain").onclick = () => toast("✅ Place réservée (dans ton imagination).");
+    $("btnBuy").onclick  = () => toast("💳 Paiement annulé : ce site est une blague (heureusement).");
+    $("btnLater").onclick= () => toast("🧠 Réfléchir c’est déjà être riche (selon certains).");
+    $("btnFree").onclick = () => toast("🎁 Le gratuit : respire, bois de l’eau, et fais un vrai projet.");
+    $("btnProof").onclick= () => toast("📈 Preuves : captures d’écran floues (parodie).");
+
+    $("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
