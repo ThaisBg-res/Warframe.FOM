@@ -138,10 +138,11 @@ index.html
           </div>
         </div>
 
-        <div style="margin-top:12px; display:flex; gap:10px;">
-          <button class="btn" style="flex:1;" id="btnBuy">ACHETER (FAUX)</button>
-          <button class="btn secondary" style="flex:1;" id="btnLater">Je réfléchis</button>
-        </div>
+        <a href="https://discord.gg/39njJqcs" target="_blank" style="text-decoration:none;">
+  <div class="btn" style="display:inline-flex; align-items:center; gap:8px;">
+    💬 Rejoindre le Discord privé
+  </div>
+</a>
 
         <p class="fineprint">
           Bonus: accès au “Discord privé” (en vrai non) + “coaching 1:1” (en rêve).
